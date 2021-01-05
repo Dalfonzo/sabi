@@ -4,7 +4,21 @@ $inactive-blue: #b9d9eb;
 $error-red: #fc003c;
 $success-green: #1ede48;
 $dark-blue: #2e334e;
+$gray: rgb(192, 192, 192);
 /* Fin de Colores */
+
+/* Tamaños de fuente */
+$normal: 1.6rem;
+/* Fin de tamaños de fuente */
+/* Mixins */
+@mixin highlight {
+  color: $main-blue;
+  font-weight: 600;
+}
+@mixin btn {
+  cursor: pointer;
+}
+/*Fin de Mixins  */
 
 /* Resets */
 * {
