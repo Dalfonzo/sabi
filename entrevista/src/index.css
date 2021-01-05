@@ -1,0 +1,25 @@
+:root {
+  /* Colores */
+  --main-blue: #0077c8;
+  --inactive-blue: #b9d9eb;
+  --error-red: #fc003c;
+  --success-green: #1ede48;
+  --dark-blue: #2e334e;
+}
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+/* Fin de Resets */
