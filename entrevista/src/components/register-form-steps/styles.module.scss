@@ -1,0 +1,29 @@
+@import '../../index.scss';
+
+/* Estilos de los tabs */
+.tabs {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: auto;
+  border-bottom: 1px solid $gray;
+
+  .tab_option {
+    flex: 1;
+    text-align: center;
+    padding: 1rem 0;
+    @include btn;
+  }
+
+  .selected {
+    @include highlight;
+    border-bottom: 1px solid $main-blue;
+  }
+}
+/* Fin de tabs */
+
+.container {
+  font-size: $normal;
+  width: 70%;
+  margin: 2rem auto;
+}
