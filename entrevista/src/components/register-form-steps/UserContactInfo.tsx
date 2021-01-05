@@ -1,4 +1,6 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
+import useForm from '../../hooks/useForm';
+
 import styles from './styles.module.scss';
 
 interface Props {
@@ -9,17 +11,11 @@ interface Props {
 
 const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
   const [selectedTab, setSelectedTab] = useState(1);
-
-  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    nextStep();
-  };
-
-  const onChangeHandler = (name: string) => (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setValues({ ...values, [name]: e.target.value });
-  };
+  const [onChangeHandler, onSubmitHandler] = useForm(
+    values,
+    nextStep,
+    setValues
+  );
 
   const renderForm = (selected: number) => {
     if (selected) {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../header/Header';
 import UserContactInfo from '../register-form-steps/UserContactInfo';
-import UserAuth from '../register-form-steps/UserCode';
+import UserAuth from '../register-form-steps/UserCodeVerification';
 import UserDetails from '../register-form-steps/UserDetails';
 
 const RegisterForm = () => {

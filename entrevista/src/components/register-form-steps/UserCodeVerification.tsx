@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
+import useForm from '../../hooks/useForm';
 
 interface Props {
   nextStep: () => void;
@@ -7,21 +8,16 @@ interface Props {
 }
 
 const UserCode: React.FC<Props> = ({ values, nextStep, setValues }) => {
-  const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    nextStep();
-  };
-
-  const onChangeHandler = (name: string) => (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setValues({ ...values, [name]: e.target.value });
-  };
+  const [onChangeHandler, onSubmitHandler] = useForm(
+    values,
+    nextStep,
+    setValues
+  );
 
   return (
     <div>
       <p>Ingresa tu código de verificación</p>
-      <p>Ingresa el codigo enviado a {values.email || values.phone}</p>
+      <p>Ingresa el codigo enviado a {values.email || values.phoneNumber}</p>
       <form onSubmit={onSubmitHandler}>
         <input
           type="text"
