@@ -27,7 +27,6 @@ const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
         <>
           <input
             type="email"
-            name="email"
             onChange={onChangeHandler('email')}
             placeholder="Correo Electronico"
             value={values.email}
@@ -43,10 +42,9 @@ const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
       <>
         <input
           type="text"
-          name="phone"
-          onChange={onChangeHandler('phone')}
+          onChange={onChangeHandler('phoneNumber')}
           placeholder="Numero de Telefono"
-          value={values.phone}
+          value={values.phoneNumber}
         />
         <p>
           Recibirás un código via SMS para confirmar tu numero en cualquier
