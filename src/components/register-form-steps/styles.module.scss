@@ -37,6 +37,11 @@ input:not([type='submit']) {
     text-align: center;
     margin: 1rem auto 0;
   }
+  .error_text {
+    font-size: $x-small;
+    color: $error-red;
+    margin: -0.5rem 0 0 1rem;
+  }
 
   .filled_btn {
     color: $white;

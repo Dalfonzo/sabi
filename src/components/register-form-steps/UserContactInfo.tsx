@@ -39,7 +39,9 @@ const UserContactInfo: React.FC<Props> = ({
               value={values.phoneNumber}
               className={error.phoneNumber ? styles.input_error : ''}
             />
-            {error.phoneNumber && <p>{error.phoneNumber}</p>}
+            {error.phoneNumber && (
+              <p className={styles.error_text}>{error.phoneNumber}</p>
+            )}
             <p className={styles.secondary_text}>
               Recibirás un código via SMS para confirmar tu numero en cualquier
               momento
@@ -56,7 +58,7 @@ const UserContactInfo: React.FC<Props> = ({
               value={values.email}
               className={error.email ? styles.input_error : ''}
             />
-            {error.email && <p>{error.email}</p>}
+            {error.email && <p className={styles.error_text}>{error.email}</p>}
             <p className={styles.secondary_text}>
               Recibirás un código de verificación a esta dirección de correo
               electrónico

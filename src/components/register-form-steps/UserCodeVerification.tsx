@@ -39,7 +39,7 @@ const UserCode: React.FC<Props> = ({
           value={values.code}
           className={error.code ? styles.input_error : ''}
         />
-        {error.code && <p>{error.code}</p>}
+        {error.code && <p className={styles.error_text}>{error.code}</p>}
         <input
           type="submit"
           value="Confirmar código"
