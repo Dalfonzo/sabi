@@ -37,11 +37,12 @@ const UserCode: React.FC<Props> = ({
           onChange={onChangeHandler('code')}
           placeholder="Código de Confirmación"
           value={values.code}
+          className={error.code ? styles.input_error : ''}
         />
         {error.code && <p>{error.code}</p>}
         <input
           type="submit"
-          value="confirmar código"
+          value="Confirmar código"
           className={`${styles.filled_btn} ${
             !values.code ? styles.inactive_btn : null
           }`}

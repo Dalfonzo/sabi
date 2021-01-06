@@ -38,6 +38,7 @@ const UserDetails: React.FC<Props> = ({
           onChange={onChangeHandler('username')}
           placeholder="Nombre de usuario"
           value={values.username}
+          className={error.username ? styles.input_error : ''}
         />
         {error.username && <p>{error.username}</p>}
 
@@ -46,6 +47,7 @@ const UserDetails: React.FC<Props> = ({
           onChange={onChangeHandler('password')}
           placeholder="contraseña"
           value={values.password}
+          className={error.password ? styles.input_error : ''}
         />
         {error.password && <p>{error.password}</p>}
 
@@ -54,6 +56,7 @@ const UserDetails: React.FC<Props> = ({
           onChange={onChangeHandler('passwordConfirmation')}
           placeholder="confirma tu contraseña"
           value={values.passwordConfirmation}
+          className={error.passwordConfirmation ? styles.input_error : ''}
         />
         {error.passwordConfirmation && <p>{error.passwordConfirmation}</p>}
 

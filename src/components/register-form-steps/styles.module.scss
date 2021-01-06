@@ -1,18 +1,18 @@
 @import '../../index.scss';
 
+input:not([type='submit']) {
+  padding: 1.2rem;
+  width: 100%;
+  border-radius: 15px;
+  outline: none;
+  margin: 1rem 0;
+  border: 1px solid $main-blue;
+}
+
 .container {
   font-size: $normal;
   width: 70%;
   margin: 2rem auto;
-
-  input:not([type='submit']) {
-    padding: 1.2rem;
-    width: 100%;
-    border-radius: 15px;
-    outline: none;
-    margin: 1rem 0;
-    border: 1px solid $main-blue;
-  }
 
   .title {
     margin: 1.5rem auto;
@@ -49,7 +49,12 @@
     background-color: $white;
     @include btn;
   }
+
   .inactive_btn {
     background-color: $inactive-blue;
+  }
+
+  .input_error {
+    border-color: $error-red;
   }
 }

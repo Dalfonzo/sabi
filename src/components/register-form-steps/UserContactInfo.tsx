@@ -37,6 +37,7 @@ const UserContactInfo: React.FC<Props> = ({
               onChange={onChangeHandler('phoneNumber')}
               placeholder="Numero de Telefono"
               value={values.phoneNumber}
+              className={error.phoneNumber ? styles.input_error : ''}
             />
             {error.phoneNumber && <p>{error.phoneNumber}</p>}
             <p className={styles.secondary_text}>
@@ -53,6 +54,7 @@ const UserContactInfo: React.FC<Props> = ({
               onChange={onChangeHandler('email')}
               placeholder="Correo Electronico"
               value={values.email}
+              className={error.email ? styles.input_error : ''}
             />
             {error.email && <p>{error.email}</p>}
             <p className={styles.secondary_text}>
