@@ -18,42 +18,48 @@ const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
   );
 
   const renderForm = (selected: number) => {
-    if (selected) {
-      return (
-        <>
-          <input
-            type="email"
-            onChange={onChangeHandler('email')}
-            placeholder="Correo Electronico"
-            value={values.email}
-          />
-          <p className={styles.secondary_text}>
-            Recibirás un código de verificación a esta dirección de correo
-            electrónico
-          </p>
-        </>
-      );
+    switch (selected) {
+      case 0:
+        return (
+          <>
+            <input
+              type="email"
+              onChange={onChangeHandler('email')}
+              placeholder="Correo Electronico"
+              value={values.email}
+            />
+            <p className={styles.secondary_text}>
+              Recibirás un código de verificación a esta dirección de correo
+              electrónico
+            </p>
+          </>
+        );
+      case 1:
+        return (
+          <>
+            <input
+              type="text"
+              onChange={onChangeHandler('phoneNumber')}
+              placeholder="Numero de Telefono"
+              value={values.phoneNumber}
+            />
+            <p className={styles.secondary_text}>
+              Recibirás un código via SMS para confirmar tu numero en cualquier
+              momento
+            </p>
+          </>
+        );
     }
-    return (
-      <>
-        <input
-          type="text"
-          onChange={onChangeHandler('phoneNumber')}
-          placeholder="Numero de Telefono"
-          value={values.phoneNumber}
-        />
-        <p className={styles.secondary_text}>
-          Recibirás un código via SMS para confirmar tu numero en cualquier
-          momento
-        </p>
-      </>
-    );
   };
 
   return (
     <div className={styles.container}>
       <div>Dropdown</div>
-      <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      <Tabs
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
+        options={['Teléfono', 'Correo']}
+      />
       <form onSubmit={onSubmitHandler}>
         {renderForm(selectedTab)}
         <input

@@ -4,31 +4,25 @@ import styles from './styles.module.scss';
 interface Props {
   selectedTab: number;
   setSelectedTab: Dispatch<SetStateAction<any>>;
+  options: string[];
 }
 
-const Tabs: React.FC<Props> = ({ selectedTab, setSelectedTab }) => {
+const Tabs: React.FC<Props> = ({ selectedTab, setSelectedTab, options }) => {
   return (
     <ul className={styles.tabs}>
-      <li
-        onClick={() => {
-          setSelectedTab(0);
-        }}
-        className={`${styles.tab_option} ${
-          !selectedTab ? styles.selected : null
-        }`}
-      >
-        Telefono
-      </li>
-      <li
-        onClick={() => {
-          setSelectedTab(1);
-        }}
-        className={`${styles.tab_option} ${
-          selectedTab ? styles.selected : null
-        }`}
-      >
-        Correo
-      </li>
+      {options.map((el, index) => (
+        <li
+          onClick={() => {
+            setSelectedTab(options.indexOf(el));
+          }}
+          className={`${styles.tab_option} ${
+            selectedTab === options.indexOf(el) ? styles.selected : null
+          }`}
+          key={index}
+        >
+          {el}
+        </li>
+      ))}
     </ul>
   );
 };
