@@ -80,9 +80,17 @@ const UserContactInfo: React.FC<Props> = ({
           type="submit"
           value="Siguiente"
           className={`${styles.filled_btn} ${
-            !values.phoneNumber && !values.email ? styles.inactive_btn : null
+            error.phoneNumber ||
+            error.email ||
+            (!values.phoneNumber && !values.email)
+              ? styles.inactive_btn
+              : null
           }`}
-          disabled={!values.phoneNumber && !values.email}
+          disabled={
+            error.phoneNumber ||
+            error.email ||
+            (!values.phoneNumber && !values.email)
+          }
         />
       </form>
     </div>

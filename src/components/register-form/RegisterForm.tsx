@@ -4,24 +4,19 @@ import UserContactInfo from '../register-form-steps/UserContactInfo';
 import UserCodeVerification from '../register-form-steps/UserCodeVerification';
 import UserDetails from '../register-form-steps/UserDetails';
 
+const initValues = {
+  phoneNumber: '',
+  email: '',
+  code: '',
+  username: '',
+  password: '',
+  passwordConfirmation: '',
+};
+
 const RegisterForm = () => {
   const [step, setStep] = useState(1);
-  const [values, setValues] = useState({
-    phoneNumber: '',
-    email: '',
-    code: '',
-    username: '',
-    password: '',
-    passwordConfirmation: '',
-  });
-  const [error, setError] = useState({
-    phoneNumber: '',
-    email: '',
-    code: '',
-    username: '',
-    password: '',
-    passwordConfirmation: '',
-  });
+  const [values, setValues] = useState(initValues);
+  const [error, setError] = useState(initValues);
 
   const previousStep = () => {
     setStep((prevState) => prevState - 1 || 1);

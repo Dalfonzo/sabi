@@ -44,9 +44,9 @@ const UserCode: React.FC<Props> = ({
           type="submit"
           value="Confirmar código"
           className={`${styles.filled_btn} ${
-            !values.code ? styles.inactive_btn : null
+            error.code || !values.code ? styles.inactive_btn : null
           }`}
-          disabled={!values.code}
+          disabled={error.code || !values.code}
         />
       </form>
       <p className={styles.primary_text}>
