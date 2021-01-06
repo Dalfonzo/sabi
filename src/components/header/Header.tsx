@@ -10,10 +10,12 @@ const Header: React.FC<Props> = ({ step, previousState }) => {
   return (
     <div className={styles.container}>
       <div className={styles.btn} onClick={previousState}>
-        Atras
+        {step < 4 ? 'Atras' : ''}
       </div>
-      <div className={styles.highlight}>Registro</div>
-      <div>{step}/3</div>
+      <div className={styles.highlight}>
+        {step < 4 ? `Registro` : `Bienvenido`}
+      </div>
+      <div>{step < 4 ? `${step}/3` : ''}</div>
     </div>
   );
 };
