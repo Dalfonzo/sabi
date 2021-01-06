@@ -1,4 +1,5 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
+import Tabs from '../tabs/Tabs';
 import useForm from '../../hooks/useForm';
 
 import styles from './styles.module.scss';
@@ -53,29 +54,7 @@ const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
   return (
     <div className={styles.container}>
       <div>Dropdown</div>
-
-      <ul className={styles.tabs}>
-        <li
-          onClick={() => {
-            setSelectedTab(0);
-          }}
-          className={`${styles.tab_option} ${
-            !selectedTab ? styles.selected : null
-          }`}
-        >
-          Telefono
-        </li>
-        <li
-          onClick={() => {
-            setSelectedTab(1);
-          }}
-          className={`${styles.tab_option} ${
-            selectedTab ? styles.selected : null
-          }`}
-        >
-          Correo
-        </li>
-      </ul>
+      <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
       <form onSubmit={onSubmitHandler}>
         {renderForm(selectedTab)}
         <input type="submit" value="Siguiente" />
