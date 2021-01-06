@@ -9,7 +9,7 @@ interface Props {
 const Header: React.FC<Props> = ({ step, previousState }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.btn} onClick={previousState}>
+      <div className={styles.back} onClick={previousState}>
         {step < 4 ? 'Atras' : ''}
       </div>
       <div className={styles.highlight}>

@@ -4,4 +4,49 @@
   font-size: $normal;
   width: 70%;
   margin: 2rem auto;
+
+  input:not([type='submit']) {
+    padding: 1.2rem;
+    width: 100%;
+    border-radius: 15px;
+    outline: none;
+    margin: 1rem 0;
+    border: 1px solid $main-blue;
+  }
+
+  .title {
+    margin: 1.5rem auto;
+    width: 70%;
+    color: $main-blue;
+    font-size: $x-big;
+    text-align: center;
+  }
+
+  .secondary_text {
+    width: 90%;
+    font-size: $small;
+    color: $gray;
+    text-align: center;
+    margin: 1rem auto;
+  }
+
+  .primary_text {
+    width: 90%;
+    font-size: $normal;
+    color: $main-blue;
+    text-align: center;
+    margin: 1rem auto 0;
+  }
+
+  .filled_btn {
+    color: $white;
+    background-color: $main-blue;
+    @include btn;
+  }
+
+  .empty_btn {
+    color: $main-blue;
+    background-color: $white;
+    @include btn;
+  }
 }

@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import useForm from '../../hooks/useForm';
+import styles from './styles.module.scss';
 
 interface Props {
   nextStep: () => void;
@@ -15,9 +16,11 @@ const UserDetails: React.FC<Props> = ({ values, nextStep, setValues }) => {
   );
 
   return (
-    <div>
-      <p>Escoge un nombre de usuario y una contraseña</p>
-      <p>puedes cambiarlos más tarde</p>
+    <div className={styles.container}>
+      <p className={styles.title}>
+        Escoge un nombre de usuario y una contraseña
+      </p>
+      <p className={styles.secondary_text}>puedes cambiarlos más tarde</p>
 
       <form onSubmit={onSubmitHandler}>
         <input
@@ -38,7 +41,7 @@ const UserDetails: React.FC<Props> = ({ values, nextStep, setValues }) => {
           placeholder="confirma tu contraseña"
           value={values.passwordConfirmation}
         />
-        <input type="submit" value="Finalizar" />
+        <input type="submit" value="Finalizar" className={styles.filled_btn} />
       </form>
     </div>
   );

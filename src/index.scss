@@ -1,4 +1,5 @@
 /* Colores */
+$white: #fff;
 $main-blue: #0077c8;
 $inactive-blue: #b9d9eb;
 $error-red: #fc003c;
@@ -8,15 +9,29 @@ $gray: rgb(192, 192, 192);
 /* Fin de Colores */
 
 /* Tamaños de fuente */
+$small: 1.4rem;
 $normal: 1.6rem;
+$medium: 1.8rem;
+$big: 2rem;
+$x-big: 2.4rem;
 /* Fin de tamaños de fuente */
+
 /* Mixins */
 @mixin highlight {
   color: $main-blue;
   font-weight: 600;
 }
+
 @mixin btn {
   cursor: pointer;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  width: 100%;
+  border-radius: 15px;
+  outline: none;
+  font-size: $small;
+  border: 1px solid currentColor;
+  font-weight: 600;
 }
 /*Fin de Mixins  */
 
@@ -36,4 +51,5 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
 }
+
 /* Fin de Resets */

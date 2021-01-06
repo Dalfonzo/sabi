@@ -52,7 +52,6 @@ const RegisterForm = () => {
     <div>
       <Header step={step} previousState={previousStep} />
       {renderView(step)}
-      <h1>{step}</h1>
     </div>
   );
 };
