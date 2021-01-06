@@ -5,16 +5,26 @@ import styles from './styles.module.scss';
 
 interface Props {
   nextStep: () => void;
-  setValues: Dispatch<SetStateAction<any>>;
   values: any;
+  setValues: Dispatch<SetStateAction<any>>;
+  error: any;
+  setError: Dispatch<SetStateAction<any>>;
 }
 
-const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
+const UserContactInfo: React.FC<Props> = ({
+  values,
+  nextStep,
+  setValues,
+  error,
+  setError,
+}) => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [onChangeHandler, onSubmitHandler] = useForm(
     values,
     nextStep,
-    setValues
+    setValues,
+    error,
+    setError
   );
 
   const renderForm = (selected: number) => {
@@ -23,14 +33,15 @@ const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
         return (
           <>
             <input
-              type="email"
-              onChange={onChangeHandler('email')}
-              placeholder="Correo Electronico"
-              value={values.email}
+              type="text"
+              onChange={onChangeHandler('phoneNumber')}
+              placeholder="Numero de Telefono"
+              value={values.phoneNumber}
             />
+            {error.phoneNumber && <p>{error.phoneNumber}</p>}
             <p className={styles.secondary_text}>
-              Recibirás un código de verificación a esta dirección de correo
-              electrónico
+              Recibirás un código via SMS para confirmar tu numero en cualquier
+              momento
             </p>
           </>
         );
@@ -38,14 +49,15 @@ const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
         return (
           <>
             <input
-              type="text"
-              onChange={onChangeHandler('phoneNumber')}
-              placeholder="Numero de Telefono"
-              value={values.phoneNumber}
+              type="email"
+              onChange={onChangeHandler('email')}
+              placeholder="Correo Electronico"
+              value={values.email}
             />
+            {error.email && <p>{error.email}</p>}
             <p className={styles.secondary_text}>
-              Recibirás un código via SMS para confirmar tu numero en cualquier
-              momento
+              Recibirás un código de verificación a esta dirección de correo
+              electrónico
             </p>
           </>
         );
@@ -65,7 +77,10 @@ const UserContactInfo: React.FC<Props> = ({ values, nextStep, setValues }) => {
         <input
           type="submit"
           value="Siguiente"
-          className={`${styles.filled_btn}`}
+          className={`${styles.filled_btn} ${
+            !values.phoneNumber && !values.email ? styles.inactive_btn : null
+          }`}
+          disabled={!values.phoneNumber && !values.email}
         />
       </form>
     </div>

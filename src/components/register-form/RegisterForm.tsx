@@ -14,6 +14,14 @@ const RegisterForm = () => {
     password: '',
     passwordConfirmation: '',
   });
+  const [error, setError] = useState({
+    phoneNumber: '',
+    email: '',
+    code: '',
+    username: '',
+    password: '',
+    passwordConfirmation: '',
+  });
 
   const previousStep = () => {
     setStep((prevState) => prevState - 1 || 1);
@@ -31,6 +39,8 @@ const RegisterForm = () => {
             nextStep={nextStep}
             values={values}
             setValues={setValues}
+            error={error}
+            setError={setError}
           />
         );
       case 2:
@@ -39,6 +49,8 @@ const RegisterForm = () => {
             nextStep={nextStep}
             values={values}
             setValues={setValues}
+            error={error}
+            setError={setError}
           />
         );
       case 3:
@@ -47,6 +59,8 @@ const RegisterForm = () => {
             nextStep={nextStep}
             values={values}
             setValues={setValues}
+            error={error}
+            setError={setError}
           />
         );
     }

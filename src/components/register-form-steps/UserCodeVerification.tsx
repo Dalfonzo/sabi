@@ -4,15 +4,25 @@ import styles from './styles.module.scss';
 
 interface Props {
   nextStep: () => void;
-  setValues: Dispatch<SetStateAction<any>>;
   values: any;
+  setValues: Dispatch<SetStateAction<any>>;
+  error: any;
+  setError: Dispatch<SetStateAction<any>>;
 }
 
-const UserCode: React.FC<Props> = ({ values, nextStep, setValues }) => {
+const UserCode: React.FC<Props> = ({
+  values,
+  nextStep,
+  setValues,
+  error,
+  setError,
+}) => {
   const [onChangeHandler, onSubmitHandler] = useForm(
     values,
     nextStep,
-    setValues
+    setValues,
+    error,
+    setError
   );
 
   return (
@@ -28,10 +38,14 @@ const UserCode: React.FC<Props> = ({ values, nextStep, setValues }) => {
           placeholder="Código de Confirmación"
           value={values.code}
         />
+        {error.code && <p>{error.code}</p>}
         <input
           type="submit"
           value="confirmar código"
-          className={styles.filled_btn}
+          className={`${styles.filled_btn} ${
+            !values.code ? styles.inactive_btn : null
+          }`}
+          disabled={!values.code}
         />
       </form>
       <p className={styles.primary_text}>

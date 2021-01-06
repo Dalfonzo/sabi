@@ -49,4 +49,7 @@
     background-color: $white;
     @include btn;
   }
+  .inactive_btn {
+    background-color: $inactive-blue;
+  }
 }

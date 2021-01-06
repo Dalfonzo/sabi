@@ -4,15 +4,25 @@ import styles from './styles.module.scss';
 
 interface Props {
   nextStep: () => void;
-  setValues: Dispatch<SetStateAction<any>>;
   values: any;
+  setValues: Dispatch<SetStateAction<any>>;
+  error: any;
+  setError: Dispatch<SetStateAction<any>>;
 }
 
-const UserDetails: React.FC<Props> = ({ values, nextStep, setValues }) => {
+const UserDetails: React.FC<Props> = ({
+  values,
+  nextStep,
+  setValues,
+  error,
+  setError,
+}) => {
   const [onChangeHandler, onSubmitHandler] = useForm(
     values,
     nextStep,
-    setValues
+    setValues,
+    error,
+    setError
   );
 
   return (
@@ -29,19 +39,36 @@ const UserDetails: React.FC<Props> = ({ values, nextStep, setValues }) => {
           placeholder="Nombre de usuario"
           value={values.username}
         />
+        {error.username && <p>{error.username}</p>}
+
         <input
           type="password"
           onChange={onChangeHandler('password')}
           placeholder="contraseña"
           value={values.password}
         />
+        {error.password && <p>{error.password}</p>}
+
         <input
           type="password"
           onChange={onChangeHandler('passwordConfirmation')}
           placeholder="confirma tu contraseña"
           value={values.passwordConfirmation}
         />
-        <input type="submit" value="Finalizar" className={styles.filled_btn} />
+        {error.passwordConfirmation && <p>{error.passwordConfirmation}</p>}
+
+        <input
+          type="submit"
+          value="Finalizar"
+          className={`${styles.filled_btn} ${
+            !values.username || !values.password || !values.passwordConfirmation
+              ? styles.inactive_btn
+              : null
+          }`}
+          disabled={
+            !values.username || !values.password || !values.passwordConfirmation
+          }
+        />
       </form>
     </div>
   );

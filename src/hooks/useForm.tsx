@@ -1,14 +1,23 @@
 import React, { Dispatch, SetStateAction } from 'react';
+import formValidation from '../validations/formValidation';
 
 interface useFormInterface {
   (
-    values: any,
     nextStep: () => void,
-    setValues: Dispatch<SetStateAction<any>>
+    values: any,
+    setValues: Dispatch<SetStateAction<any>>,
+    error: any,
+    setError: Dispatch<SetStateAction<any>>
   ): any;
 }
 
-const useForm: useFormInterface = (values, nextStep, setValues) => {
+const useForm: useFormInterface = (
+  values,
+  nextStep,
+  setValues,
+  error,
+  setError
+) => {
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     nextStep();
@@ -17,7 +26,10 @@ const useForm: useFormInterface = (values, nextStep, setValues) => {
   const onChangeHandler = (name: string) => (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    setValues({ ...values, [name]: e.target.value });
+    const currentValue = e.target.value;
+    setValues({ ...values, [name]: currentValue });
+    // Validacion
+    formValidation(name, currentValue, error, setError, values);
   };
 
   return [onChangeHandler, onSubmitHandler];
