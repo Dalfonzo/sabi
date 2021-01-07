@@ -34,6 +34,12 @@ $x-big: 2.4rem;
   border: 1px solid currentColor;
   font-weight: 600;
 }
+
+@mixin wrapper {
+  max-width: 70rem;
+  min-width: 30rem;
+  margin: auto;
+}
 /*Fin de Mixins  */
 
 /* Resets */

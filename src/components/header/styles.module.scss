@@ -1,26 +1,33 @@
 @import '../../index.scss';
 
 .container {
-  display: flex;
-  margin: auto;
-  justify-content: space-between;
-  align-items: center;
   color: $gray;
   font-size: $normal;
   padding: 1rem 2rem;
   box-shadow: -1px 2px 5px 0px $gray;
   -webkit-box-shadow: -1px 2px 5px 0px $gray;
   -moz-box-shadow: -1px 2px 5px 0px $gray;
+  // width: 100vw;
+  // position: absolute;
+  // left: 0;
 
-  .back {
-    cursor: pointer;
-  }
+  .wrapper {
+    @include wrapper;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
 
-  .highlight {
-    @include highlight;
-  }
+    .back {
+      cursor: pointer;
+    }
 
-  > * {
-    padding: 0.5rem;
+    .highlight {
+      @include highlight;
+    }
+
+    > * {
+      padding: 0.5rem;
+    }
   }
 }

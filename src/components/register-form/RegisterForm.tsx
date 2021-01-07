@@ -4,6 +4,7 @@ import UserContactInfo from '../register-form-steps/UserContactInfo';
 import UserCodeVerification from '../register-form-steps/UserCodeVerification';
 import UserDetails from '../register-form-steps/UserDetails';
 import DisplayData from '../display-data/DisplayData';
+import styles from './styles.module.scss';
 
 const initValues = {
   phoneNumber: '',
@@ -15,8 +16,7 @@ const initValues = {
 };
 
 const RegisterForm = () => {
-  // const [step, setStep] = useState(1);
-  const [step, setStep] = useState(4); //quitar
+  const [step, setStep] = useState(1);
   const [values, setValues] = useState(initValues);
   const [error, setError] = useState(initValues);
 
@@ -66,10 +66,10 @@ const RegisterForm = () => {
   };
 
   return (
-    <div>
+    <>
       <Header step={step} previousState={previousStep} />
-      {renderView(step)}
-    </div>
+      <div className={styles.wrapper}>{renderView(step)}</div>
+    </>
   );
 };
 

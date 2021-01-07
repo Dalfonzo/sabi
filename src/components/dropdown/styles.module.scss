@@ -1,0 +1,42 @@
+@import '../../index.scss';
+
+.container {
+  outline: none;
+  width: fit-content;
+  margin: auto;
+  border-radius: 0.25em;
+  cursor: pointer;
+  line-height: 1.5;
+  color: $gray;
+  position: relative;
+
+  &::after {
+    content: '';
+    width: 0.7em;
+    height: 0.4em;
+    background-color: $gray;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    position: absolute;
+    top: 50%;
+    right: 0.2rem;
+    transform: translateY(-50%);
+  }
+
+  select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 2.5rem 0 0.5rem;
+    margin: 0;
+    width: 100%;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    text-transform: capitalize;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+}

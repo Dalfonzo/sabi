@@ -2,6 +2,7 @@ import React, { useState, Dispatch, SetStateAction } from 'react';
 import Tabs from '../tabs/Tabs';
 import Input from '../input/Input';
 import useForm from '../../hooks/useForm';
+import Dropdown from '../dropdown/Dropdown';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -68,7 +69,7 @@ const UserContactInfo: React.FC<Props> = ({
 
   return (
     <div className={styles.container}>
-      <div>Dropdown</div>
+      <Dropdown />
       <Tabs
         selectedTab={selectedTab}
         setSelectedTab={setSelectedTab}
