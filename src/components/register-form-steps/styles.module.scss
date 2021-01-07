@@ -1,21 +1,5 @@
 @import '../../index.scss';
 
-// input:not([type='submit']) {
-//   padding: 1.2rem;
-//   width: 100%;
-//   border-radius: 15px;
-//   outline: none;
-//   margin: 1rem 0;
-//   border: 1px solid $main-blue;
-// }
-
-// .success_check {
-//   background: url(../../assets/icons/checked.svg) right center;
-//   background-size: 14px;
-//   background-repeat: no-repeat;
-//   background-origin: content-box;
-// }
-
 .container {
   font-size: $normal;
   width: 70%;
@@ -44,11 +28,6 @@
     text-align: center;
     margin: 1rem auto 0;
   }
-  // .error_text {
-  //   font-size: $x-small;
-  //   color: $error-red;
-  //   margin: -0.5rem 0 0 1rem;
-  // }
 
   .filled_btn {
     color: $white;
@@ -65,8 +44,4 @@
   .inactive_btn {
     background-color: $inactive-blue;
   }
-
-  // .input_error {
-  //   border-color: $error-red;
-  // }
 }

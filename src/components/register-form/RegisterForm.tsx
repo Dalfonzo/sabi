@@ -3,6 +3,7 @@ import Header from '../header/Header';
 import UserContactInfo from '../register-form-steps/UserContactInfo';
 import UserCodeVerification from '../register-form-steps/UserCodeVerification';
 import UserDetails from '../register-form-steps/UserDetails';
+import DisplayData from '../display-data/DisplayData';
 
 const initValues = {
   phoneNumber: '',
@@ -14,7 +15,8 @@ const initValues = {
 };
 
 const RegisterForm = () => {
-  const [step, setStep] = useState(1);
+  // const [step, setStep] = useState(1);
+  const [step, setStep] = useState(4); //quitar
   const [values, setValues] = useState(initValues);
   const [error, setError] = useState(initValues);
 
@@ -58,6 +60,8 @@ const RegisterForm = () => {
             setError={setError}
           />
         );
+      default:
+        return <DisplayData />;
     }
   };
 

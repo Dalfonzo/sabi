@@ -1,0 +1,32 @@
+@import '../../index.scss';
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 4rem;
+  font-size: $normal;
+
+  .card {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 5px;
+
+    .avatar {
+      border-radius: 50%;
+      border: 1px solid $dark-blue;
+    }
+
+    .text {
+      text-align: center;
+      color: $dark-blue;
+      padding: 1rem 0;
+      font-weight: 600;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
