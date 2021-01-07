@@ -28,7 +28,7 @@ const formValidation: formValidationInterface = (
         errorMsg = 'Ingresa una dirección de correo válida';
         break;
       case 'phoneNumber':
-        const phoneNumberRegex = /^\+?([0-9]{2})\)?[ ]?([1-9]{3})[ ]?([0-9]{3})[ ]?([0-9]{4})$/;
+        const phoneNumberRegex = /^\+([0-9]{2})\)?[ ]?([1-9]{3})[ ]?([0-9]{3})[ ]?([0-9]{4})$/;
         isValid = phoneNumberRegex.test(currentValue);
         errorMsg = 'Ingresa un número de teléfono válido';
         break;

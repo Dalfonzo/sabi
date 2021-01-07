@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './styles.module.scss';
 
-const DisplayData = () => {
-  const [data, setData] = useState([]);
+interface Props {
+  data: any;
+}
 
-  const fetchData = async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users');
-    const resJSON = await res.json();
-    setData(resJSON);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+const DisplayData: React.FC<Props> = ({ data }) => {
   return (
     <div className={styles.container}>
       {data &&
         data.map((el: any) => (
-          <div className={styles.card}>
+          <div className={styles.card} key={el.id}>
             <img
               src={`https://robohash.org/${el.id}?size=150x150`}
               alt="avatar"
               className={styles.avatar}
             />
-            <p key={el.id} className={styles.text}>
-              {el.name}
-            </p>
+            <p className={styles.text}>{el.name}</p>
           </div>
         ))}
     </div>

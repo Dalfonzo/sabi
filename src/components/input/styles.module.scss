@@ -7,6 +7,10 @@ input:not([type='submit']) {
   outline: none;
   margin: 1rem 0;
   border: 1px solid $main-blue;
+  font-size: $normal;
+}
+::-webkit-input-placeholder {
+  color: $gray;
 }
 
 .success_check {

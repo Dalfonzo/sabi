@@ -3,7 +3,7 @@ import Header from '../header/Header';
 import UserContactInfo from '../register-form-steps/UserContactInfo';
 import UserCodeVerification from '../register-form-steps/UserCodeVerification';
 import UserDetails from '../register-form-steps/UserDetails';
-import DisplayData from '../display-data/DisplayData';
+import Home from '../home/Home';
 import styles from './styles.module.scss';
 
 const initValues = {
@@ -16,7 +16,7 @@ const initValues = {
 };
 
 const RegisterForm = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(4);
   const [values, setValues] = useState(initValues);
   const [error, setError] = useState(initValues);
 
@@ -61,7 +61,7 @@ const RegisterForm = () => {
           />
         );
       default:
-        return <DisplayData />;
+        return <Home />;
     }
   };
 

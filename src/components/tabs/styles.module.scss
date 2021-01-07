@@ -6,13 +6,14 @@
   justify-content: space-evenly;
   list-style: none;
   margin: 2rem auto;
-  border-bottom: 1px solid $gray;
 
   .tab_option {
     flex: 1;
     text-align: center;
     padding: 1rem 0;
     cursor: pointer;
+    border-bottom: 1px solid $gray;
+    color: $main-blue;
   }
 
   .selected {

@@ -18,13 +18,20 @@ const Input: React.FC<Props> = ({
   placeholder,
   type,
 }) => {
+  const formatPhoneValue = () => {
+    if (name === 'phoneNumber' && !error[name]) {
+      return values[name].replace(/(.{3})/g, '$1 ').replace(/\s+(?=\S*$)/, '');
+    }
+    return values[name];
+  };
+
   return (
     <>
       <input
         type={type ? type : 'text'}
         onChange={onChangeHandler(name)}
         placeholder={placeholder}
-        value={values[name]}
+        value={formatPhoneValue()}
         className={`${error[name] ? styles.input_error : ''} ${
           values[name] && !error[name] ? styles.success_check : ''
         }`}
