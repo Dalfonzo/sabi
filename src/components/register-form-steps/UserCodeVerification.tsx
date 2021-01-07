@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import useForm from '../../hooks/useForm';
+import Input from '../input/Input';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -24,22 +25,28 @@ const UserCode: React.FC<Props> = ({
     error,
     setError
   );
+  const renderTitle = () => {
+    if (values.email) {
+      return 'Verifica tu correo electrónico';
+    }
+    return 'Ingresa tu código de verificación';
+  };
 
   return (
     <div className={styles.container}>
-      <p className={styles.title}>Ingresa tu código de verificación</p>
+      <p className={styles.title}>{renderTitle()}</p>
       <p className={styles.secondary_text}>
-        Ingresa el codigo enviado a {values.email || values.phoneNumber}
+        Ingresa el codigo enviado a <br />
+        {values.email || values.phoneNumber}
       </p>
       <form onSubmit={onSubmitHandler}>
-        <input
-          type="text"
-          onChange={onChangeHandler('code')}
+        <Input
+          values={values}
+          error={error}
+          onChangeHandler={onChangeHandler}
+          name="code"
           placeholder="Código de Confirmación"
-          value={values.code}
-          className={error.code ? styles.input_error : ''}
         />
-        {error.code && <p className={styles.error_text}>{error.code}</p>}
         <input
           type="submit"
           value="Confirmar código"

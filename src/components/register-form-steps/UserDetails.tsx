@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import useForm from '../../hooks/useForm';
+import Input from '../input/Input';
 import styles from './styles.module.scss';
 
 interface Props {
@@ -30,41 +31,32 @@ const UserDetails: React.FC<Props> = ({
       <p className={styles.title}>
         Escoge un nombre de usuario y una contraseña
       </p>
-      <p className={styles.secondary_text}>puedes cambiarlos más tarde</p>
+      <p className={styles.secondary_text}>Puedes cambiarlos más tarde.</p>
 
       <form onSubmit={onSubmitHandler}>
-        <input
-          type="text"
-          onChange={onChangeHandler('username')}
+        <Input
+          values={values}
+          error={error}
+          onChangeHandler={onChangeHandler}
+          name="username"
           placeholder="Nombre de usuario"
-          value={values.username}
-          className={error.username ? styles.input_error : ''}
         />
-        {error.username && (
-          <p className={styles.error_text}>{error.username}</p>
-        )}
-
-        <input
-          type="password"
-          onChange={onChangeHandler('password')}
+        <Input
+          values={values}
+          error={error}
+          onChangeHandler={onChangeHandler}
+          name="password"
           placeholder="Contraseña"
-          value={values.password}
-          className={error.password ? styles.input_error : ''}
-        />
-        {error.password && (
-          <p className={styles.error_text}>{error.password}</p>
-        )}
-
-        <input
           type="password"
-          onChange={onChangeHandler('passwordConfirmation')}
-          placeholder="Confirma tu contraseña"
-          value={values.passwordConfirmation}
-          className={error.passwordConfirmation ? styles.input_error : ''}
         />
-        {error.passwordConfirmation && (
-          <p className={styles.error_text}>{error.passwordConfirmation}</p>
-        )}
+        <Input
+          values={values}
+          error={error}
+          onChangeHandler={onChangeHandler}
+          name="passwordConfirmation"
+          placeholder="Confirma tu contraseña"
+          type="password"
+        />
 
         <input
           type="submit"

@@ -1,5 +1,6 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import Tabs from '../tabs/Tabs';
+import Input from '../input/Input';
 import useForm from '../../hooks/useForm';
 import styles from './styles.module.scss';
 
@@ -32,16 +33,13 @@ const UserContactInfo: React.FC<Props> = ({
       case 0:
         return (
           <>
-            <input
-              type="text"
-              onChange={onChangeHandler('phoneNumber')}
+            <Input
+              values={values}
+              error={error}
+              onChangeHandler={onChangeHandler}
+              name="phoneNumber"
               placeholder="Numero de Telefono"
-              value={values.phoneNumber}
-              className={error.phoneNumber ? styles.input_error : ''}
             />
-            {error.phoneNumber && (
-              <p className={styles.error_text}>{error.phoneNumber}</p>
-            )}
             <p className={styles.secondary_text}>
               Recibirás un código via SMS para confirmar tu numero en cualquier
               momento
@@ -51,14 +49,14 @@ const UserContactInfo: React.FC<Props> = ({
       case 1:
         return (
           <>
-            <input
-              type="email"
-              onChange={onChangeHandler('email')}
+            <Input
+              values={values}
+              error={error}
+              onChangeHandler={onChangeHandler}
+              name="email"
               placeholder="Correo Electronico"
-              value={values.email}
-              className={error.email ? styles.input_error : ''}
+              type="email"
             />
-            {error.email && <p className={styles.error_text}>{error.email}</p>}
             <p className={styles.secondary_text}>
               Recibirás un código de verificación a esta dirección de correo
               electrónico
