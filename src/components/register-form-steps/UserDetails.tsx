@@ -18,12 +18,29 @@ const UserDetails: React.FC<Props> = ({
   error,
   setError,
 }) => {
+  const postData = async () => {
+    try {
+      const res = await fetch('https://jsonplaceholder.typicode.com/users', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      const resJSON = await res.json();
+      console.log(resJSON);
+    } catch (error) {
+      alert('Hubo un problema con el post :(');
+    }
+  };
+
   const [onChangeHandler, onSubmitHandler] = useForm(
     values,
     nextStep,
     setValues,
     error,
-    setError
+    setError,
+    postData
   );
 
   return (

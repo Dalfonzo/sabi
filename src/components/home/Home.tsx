@@ -8,11 +8,15 @@ const Home = () => {
   const DisplayDataWithLoading = withLoading(DisplayData);
 
   const fetchData = async () => {
-    setLoading(true);
-    const res = await fetch('https://jsonplaceholder.typicode.com/users');
-    const resJSON = await res.json();
-    setData(resJSON);
-    setLoading(false);
+    try {
+      setLoading(true);
+      const res = await fetch('https://jsonplaceholder.typicode.com/users');
+      const resJSON = await res.json();
+      setData(resJSON);
+      setLoading(false);
+    } catch (e) {
+      alert('Hubo un problema con el fetch');
+    }
   };
 
   useEffect(() => {

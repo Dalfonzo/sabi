@@ -7,7 +7,8 @@ interface useFormInterface {
     values: any,
     setValues: Dispatch<SetStateAction<any>>,
     error: any,
-    setError: Dispatch<SetStateAction<any>>
+    setError: Dispatch<SetStateAction<any>>,
+    fn?: () => void
   ): any;
 }
 
@@ -16,11 +17,15 @@ const useForm: useFormInterface = (
   nextStep,
   setValues,
   error,
-  setError
+  setError,
+  fn
 ) => {
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     nextStep();
+    if (fn) {
+      fn();
+    }
   };
 
   const onChangeHandler = (name: string) => (
