@@ -1,14 +1,22 @@
 @import '../../index.scss';
 
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
+  -ms-flex-line-pack: center;
   align-content: center;
   margin-top: 4rem;
   font-size: $normal;
 
   .card {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 10rem;
     flex: 0 1 10rem;
     padding: 1rem;
     margin: 0.5rem 0;
@@ -27,6 +35,8 @@
     }
 
     &:hover {
+      -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
       transform: scale(1.1);
     }
   }

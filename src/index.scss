@@ -21,7 +21,6 @@ $x-big: 2.4rem;
 @mixin highlight {
   color: $main-blue;
   font-weight: 600;
-  // margin: auto;
 }
 
 @mixin btn {
@@ -51,10 +50,12 @@ $x-big: 2.4rem;
 *,
 *::before,
 *::after {
+  -webkit-box-sizing: inherit;
   box-sizing: inherit;
 }
 
 html {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 62.5%;
   font-family: Arial, sans-serif;

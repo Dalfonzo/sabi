@@ -2,6 +2,8 @@
 
 .container {
   outline: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 4rem auto;
   border-radius: 0.25em;
@@ -15,14 +17,19 @@
     width: 0.7em;
     height: 0.4em;
     background-color: $gray;
+    -webkit-clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     position: absolute;
     top: 50%;
     right: 0.2rem;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
 
   select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
     background-color: transparent;
     border: none;
