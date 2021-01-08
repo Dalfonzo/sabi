@@ -66,3 +66,17 @@ body {
 }
 
 /* Fin de Resets */
+
+/* Media querys */
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 58%;
+  }
+}
+@media only screen and (max-width: 350px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Fin de Media querys */

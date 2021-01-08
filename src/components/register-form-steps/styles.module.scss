@@ -46,3 +46,11 @@
     background-color: $inactive-blue;
   }
 }
+
+/* Media querys */
+@media only screen and (max-width: 400px) {
+  .container {
+    width: 80%;
+  }
+}
+/* Fin de Media querys */
