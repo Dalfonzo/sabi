@@ -21,6 +21,7 @@ $x-big: 2.4rem;
 @mixin highlight {
   color: $main-blue;
   font-weight: 600;
+  // margin: auto;
 }
 
 @mixin btn {

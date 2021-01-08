@@ -11,9 +11,9 @@
   .wrapper {
     @include wrapper;
     display: flex;
-    margin: auto;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     .back {
       cursor: pointer;
@@ -21,6 +21,10 @@
 
     .highlight {
       @include highlight;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
 
     > * {
@@ -33,7 +37,7 @@
 
       .icon {
         fill: currentColor;
-        margin: 0 0.5rem;
+        margin-right: 0.5rem;
         width: $normal;
       }
     }

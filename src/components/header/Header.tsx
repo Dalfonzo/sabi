@@ -10,7 +10,8 @@ interface Props {
 const Header: React.FC<Props> = ({ step, previousState }) => {
   const back = (
     <span className={styles.back_btn}>
-      <Arrow className={styles.icon} /> Atrás
+      <Arrow className={styles.icon} />
+      Atrás
     </span>
   );
 
