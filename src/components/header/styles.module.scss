@@ -26,5 +26,16 @@
     > * {
       padding: 0.5rem;
     }
+
+    .back_btn {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        fill: currentColor;
+        margin: 0 0.5rem;
+        width: $normal;
+      }
+    }
   }
 }

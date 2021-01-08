@@ -16,7 +16,7 @@ const initValues = {
 };
 
 const RegisterForm = () => {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(1);
   const [values, setValues] = useState(initValues);
   const [error, setError] = useState(initValues);
 
