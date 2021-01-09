@@ -20,9 +20,9 @@ const formValidation: formValidationInterface = (
   let isValid = true;
   let errorMsg = '';
   let passConfError = `Las contraseñas no coinciden`;
+  let aux = true;
 
   if (currentValue) {
-    let aux = true;
     switch (name) {
       case 'email':
         const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -53,13 +53,13 @@ const formValidation: formValidationInterface = (
         errorMsg = passConfError;
         break;
     }
-    setError({
-      ...error,
-      // Caso especial para asegurar que tanto password y su confirmacion sean iguales
-      passwordConfirmation: !aux && name === 'password' ? passConfError : '',
-      [name]: isValid ? '' : errorMsg,
-    });
   }
+  setError({
+    ...error,
+    // Caso especial para asegurar que tanto password y su confirmacion sean iguales
+    passwordConfirmation: !aux && name === 'password' ? passConfError : '',
+    [name]: isValid ? '' : errorMsg,
+  });
 };
 
 export default formValidation;
