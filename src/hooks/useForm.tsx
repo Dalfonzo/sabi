@@ -32,6 +32,7 @@ const useForm: useFormInterface = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const currentValue = e.target.value.replace(/\s/g, '');
+
     setValues({ ...values, [name]: currentValue });
     // Validacion
     formValidation(name, currentValue, error, setError, values);
