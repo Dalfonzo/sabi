@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# Información sobre SabiApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link del deploy
 
-## Available Scripts
+https://naughty-mestorf-c0d12a.netlify.app/
 
-In the project directory, you can run:
+## Instrucciones generales
 
-### `npm start`
+La App consta de 4 vistas, cuyas validaciones se explican a continuación:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Registo de Telefono o Correo (Paso 1/3)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Teléfono
 
-### `npm test`
+Acepta cualquier número de 13 dígitos incluyendo el código país y el signo '+':
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Ejemplos de Formatos válidos:
 
-### `npm run build`
+  - **+584143256584**
+  - **+542126584123**
+  - etc
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Ejemplos de Formatos no válidos:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - Numeros sin el signo '+' : **584123064500**
+  - Numeros con mas o menos de 13 digitos
+  - Numeros que posean ceros (0) en los primeros 3 dígitos después del codigo pais: **+580002350355**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Correo
 
-### `npm run eject`
+Acepta cualquier correo siempre que cumpla con la estructura básica
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Ejemplo de Formato válido:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - **nombre@dominio.something**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Ejemplo de Formato no válido:
+  - **email.com**
+  - **email@something**
+  - etc
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Verificación de código (Paso 2/3)
 
-## Learn More
+#### Teléfono
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Acepta cualquier numero de 6 digitos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Ejemplo de Formato válido:
+  - **123456**
+
+### Registro de usuario y contraseña (Paso 3/3)
+
+#### Nombre de usuario
+
+Acepta cualquier cadena de texto. **La única condición es que no puede quedar vacio**
+
+#### Contraseña
+
+Acepta cualquier cadena de texto. **La unica condición es que sea mayor a 6 dígitos**
+
+#### Confirmación de Contraseña
+
+Como su nombre lo indica, **debe coincidir con Contraseña de lo contrario arrojará error**
+
+### Comentarios Adicionales
+
+- La **API empleada para el GET y POST** fue: https://jsonplaceholder.typicode.com/users
+- La **API responsable de las imagenes** de la ultima vista es https://robohash.org/
+- Al hacer click en el botón **Finalizar** del **paso 3/3** se imprime en consola el **Object response** del **POST** de la API en el que se observa un id auto generado por dicha API
+- Los folders que componen al proyecto son los siguientes:
+  - assets: contiene los iconos empleados
+  - components: contiene todos los componentes o partes de la aplicación
+  - hoc: contiene los **higher-order components** empleados. En este caso solo fue uno, y corresponde al "loading screen"
+  - hooks: contiene los **custom hooks** realizados
+  - validations: contiene todo lo relacionado a las validaciones de los forms
+- El dropdown del paso (1/3) también es funcional, aunque su input no se haya empleado. Se puede observar por consola los valores elegidos en todo momento
