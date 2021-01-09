@@ -39,10 +39,10 @@ const UserContactInfo: React.FC<Props> = ({
               error={error}
               onChangeHandler={onChangeHandler}
               name="phoneNumber"
-              placeholder="Numero de Telefono"
+              placeholder="Numero de teléfono"
             />
             <p className={styles.secondary_text}>
-              Recibirás un código via SMS para confirmar tu numero en cualquier
+              Recibirás un código via SMS para confirmar tu número en cualquier
               momento
             </p>
           </>
@@ -55,7 +55,7 @@ const UserContactInfo: React.FC<Props> = ({
               error={error}
               onChangeHandler={onChangeHandler}
               name="email"
-              placeholder="Correo Electronico"
+              placeholder="Correo electrónico"
               type="email"
             />
             <p className={styles.secondary_text}>

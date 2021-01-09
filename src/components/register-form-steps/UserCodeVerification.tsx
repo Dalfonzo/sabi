@@ -36,7 +36,7 @@ const UserCode: React.FC<Props> = ({
     <div className={styles.container}>
       <p className={styles.title}>{renderTitle()}</p>
       <p className={styles.secondary_text}>
-        Ingresa el codigo enviado a <br />
+        Ingresa el código enviado a <br />
         {values.email || values.phoneNumber}
       </p>
       <form onSubmit={onSubmitHandler}>
@@ -45,7 +45,7 @@ const UserCode: React.FC<Props> = ({
           error={error}
           onChangeHandler={onChangeHandler}
           name="code"
-          placeholder="Código de Confirmación"
+          placeholder="Código de confirmación"
         />
         <input
           type="submit"
@@ -59,7 +59,7 @@ const UserCode: React.FC<Props> = ({
       <p className={styles.primary_text}>
         ¿No has recibido tu código de confirmación?
       </p>
-      <button className={styles.empty_btn}>Volver a enviar codigo</button>
+      <button className={styles.empty_btn}>Volver a enviar código</button>
     </div>
   );
 };

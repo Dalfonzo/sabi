@@ -52,7 +52,10 @@ Acepta cualquier numero de 6 digitos
 
 #### Nombre de usuario
 
-Acepta cualquier cadena de texto. **La única condición es que no puede quedar vacio**
+Acepta cualquier cadena de texto. **La únicas condiciones es que no puede quedar vacio y el nombre no puede ser "sabiapp"**
+
+- Forzar error:
+  - Introducir "sabiapp", lo cual simularía el error de que ese nombre de usuario ya está registrado
 
 #### Contraseña
 
