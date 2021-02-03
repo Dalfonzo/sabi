@@ -23,7 +23,7 @@ const RegisterForm = () => {
   const previousStep = () => {
     setStep((prevState) => prevState - 1 || 1);
   };
-
+// asdasd
   const nextStep = () => {
     setStep((prevState) => prevState + 1);
   };
